@@ -1,0 +1,186 @@
+/* General reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.chat-container {
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    height: 80%; /* Ensure the chat container fills a portion of the viewport */
+}
+
+header {
+    background: #6200ea;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: absolute; /* Use absolute positioning */
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%; /* Ensure header width matches container */
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+#chat-box {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto; /* Enable scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    background: #e6e6e6;
+    margin-top: 60px; /* Adjust for the header height */
+}
+
+#chat-box .message {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#chat-box .message.user {
+    justify-content: flex-end;
+}
+
+#chat-box .message.user .content {
+    background: #6200ea;
+    color: #fff;
+}
+
+#chat-box .message.bot .content {
+    background: #f1f1f1;
+    color: #333;
+}
+
+#chat-box .content {
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 10px;
+    word-wrap: break-word;
+    font-size: 14px;
+}
+
+.input-container {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background: #fff;
+    position: absolute; /* Use absolute positioning */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+}
+
+.input-container input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+.input-container button {
+    background: #6200ea;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.input-container button:hover {
+    background: #4500b5;
+}
+
+/* Scrollbar Styling */
+#chat-box::-webkit-scrollbar {
+    width: 5px;
+}
+
+#chat-box::-webkit-scrollbar-thumb {
+    background: #6200ea;
+    border-radius: 5px;
+}
+
+/* Chat Bubble */
+.message {
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    max-width: 90%;
+    word-wrap: break-word;
+}
+
+.message.user {
+    background: #dcf8c6;
+    align-self: flex-end;
+    text-align: right;
+}
+
+.message.ai {
+    background: #f1f0f0;
+    align-self: flex-start;
+    text-align: left;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .chat-container {
+        height: 90%; /* Increase height for smaller screens */
+        width: 95%; /* Ensure the container fits within smaller viewports */
+    }
+
+    header {
+        font-size: 16px; /* Reduce font size in header for smaller screens */
+        padding: 15px;
+    }
+
+    #chat-box .content {
+        font-size: 13px; /* Adjust font size for chat bubbles */
+    }
+
+    .input-container input {
+        font-size: 13px; /* Adjust input font size */
+    }
+
+    .input-container button {
+        padding: 8px 15px; /* Adjust button padding */
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 14px; /* Further reduce font size for very small screens */
+    }
+
+    .input-container {
+        flex-direction: column; /* Stack input and button vertically */
+    }
+
+    .input-container input {
+        margin-right: 0;
+        margin-bottom: 5px; /* Add space between input and button */
+    }
+
+    .input-container button {
+        width: 100%; /* Make button span full width */
+    }
+}
