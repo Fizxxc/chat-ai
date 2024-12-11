@@ -4,22 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat AI</title>
+    <meta id="meta-time" name="meta-time" content="">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="chat-container">
         <header>
             <h1>Chat AI</h1>
+            <div id="header-time">Waktu: --:--</div>
         </header>
 
         <div id="chat-box">
             <!-- Pesan akan muncul di sini -->
         </div>
 
+        <!-- Bagian Footer untuk Mulai Game -->
+<div class="footer">
+    <button class="start-button" onclick="startGame()">Mulai Game</button>
+</div>
         <div class="input-container">
             <input type="text" id="user-input" placeholder="Type your message..." />
             <button id="send-btn">Send</button>
+            <button onclick="clearChatHistory()">Clear Chat</button>
         </div>
     </div>
 

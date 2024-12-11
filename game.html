@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Game Trivia</title>
+
+    <!-- Menghubungkan SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Menghubungkan file CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="trivia-container">
+        <div class="trivia-header">Mini Game Trivia</div>
+        <div id="trivia-question" class="trivia-question">Pertanyaan akan muncul di sini</div>
+
+        <div class="trivia-options">
+            <!-- Tombol opsi jawaban -->
+            <button class="trivia-button">Opsi A</button>
+            <button class="trivia-button">Opsi B</button>
+            <button class="trivia-button">Opsi C</button>
+            <button class="trivia-button">Opsi D</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "Siapa penemu telepon?",
+                options: ["Alexander Graham Bell", "Thomas Edison", "Nikola Tesla", "Albert Einstein"],
+                answer: "Alexander Graham Bell"
+            },
+            {
+                question: "Apa ibu kota negara Indonesia?",
+                options: ["Jakarta", "Bandung", "Surabaya", "Medan"],
+                answer: "Jakarta"
+            },
+            {
+                question: "Siapa penulis buku Harry Potter?",
+                options: ["J.K. Rowling", "Stephen King", "George Orwell", "Agatha Christie"],
+                answer: "J.K. Rowling"
+            },
+            {
+                question: "Planet terbesar dalam tata surya adalah?",
+                options: ["Mars", "Venus", "Jupiter", "Saturnus"],
+                answer: "Jupiter"
+            },
+            {
+                question: "Udah follow ig : @fizzx_404 belum?",
+                options: ["Udah", "Belum", "Malas", "Takde ig"],
+                answer: "Udah"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const questionEl = document.getElementById('trivia-question');
+            const buttonsEl = document.getElementsByClassName('trivia-button');
+
+            questionEl.textContent = questions[currentQuestionIndex].question;
+
+            for (let i = 0; i < buttonsEl.length; i++) {
+                buttonsEl[i].textContent = questions[currentQuestionIndex].options[i];
+                buttonsEl[i].onclick = () => checkAnswer(buttonsEl[i].textContent);
+            }
+        }
+
+        function checkAnswer(selectedOption) {
+            const correctAnswer = questions[currentQuestionIndex].answer;
+
+            if (selectedOption === correctAnswer) {
+                score++;
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Jawaban Benar!',
+                    text: `Skor Anda sekarang: ${score}`
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Jawaban Salah!',
+                    text: `Jawaban yang benar adalah: ${correctAnswer}`
+                });
+            }
+
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < questions.length) {
+                setTimeout(loadQuestion, 1500);
+            } else {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Game Selesai!',
+                    text: `Skor Akhir Anda: ${score}`
+                }).then(() => {
+                    window.location.href = "index.html";  // Kembali ke halaman utama
+                });
+            }
+        }
+
+        window.onload = loadQuestion;
+    </script>
+
+</body>
+</html>

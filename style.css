@@ -36,6 +36,22 @@ header {
     z-index: 1000;
 }
 
+/* Styling untuk elemen waktu di header */
+#header-time {
+    font-weight: bold;
+    font-size: 18px;
+    color: #ffeb3d;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 10px;
+    background: #6200ea;
+    border-radius: 8px;
+    margin-top: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+
 #chat-box {
     flex: 1;
     padding: 10px;
@@ -183,4 +199,130 @@ header {
     .input-container button {
         width: 100%; /* Make button span full width */
     }
+}
+
+/* Mini Games Trivia Styles */
+.trivia-container {
+    background: #6200ea;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin: 20px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.trivia-header {
+    font-size: 24px;
+    font-weight: bold;
+    color: #6200ea;
+    margin-bottom: 15px;
+}
+
+.trivia-question {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 10px;
+    color: #333;
+}
+
+.trivia-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.trivia-button {
+    background: #ffeb3d;
+    color: #000;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-align: center;
+    outline: none;
+    margin-top: 5px;
+}
+
+.trivia-button:hover {
+    background: #ffc107;
+    transform: scale(1.05);
+}
+
+.trivia-button:active {
+    transform: scale(0.95);
+}
+
+.correct-answer {
+    background: #6200ea !important;
+}
+
+.incorrect-answer {
+    background: #6200ea !important;
+}
+
+/* Animation untuk efek pertanyaan */
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.trivia-question {
+    animation: bounce 1s ease-in-out;
+}
+
+/* Footer untuk Mulai Game */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #f1f1f1;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+/* Tombol Mulai Game */
+.start-button {
+    background: #6200ea;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+/* Hover dan Klik Tombol */
+.start-button:hover {
+    background: #4500b5;
+    transform: scale(1.05);
+}
+
+.start-button:active {
+    transform: scale(0.95);
+}
+
+.start-button:focus {
+    outline: none;
 }
